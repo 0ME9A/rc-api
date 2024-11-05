@@ -12,10 +12,6 @@ export async function GET(request: Request) {
 
     const projectType = type ? { projectType: type } : {}
 
-    console.log("----")
-    console.log(projectType)
-    console.log("----")
-
     try {
         // Connect to the MongoDB client
         const client = await clientPromise;
@@ -31,6 +27,7 @@ export async function GET(request: Request) {
         // Send the response
         return NextResponse.json({ success: true, total: projects.length, data: projects });
     } catch (error) {
+        console.log(error)
         return NextResponse.json({
             success: false,
             message: "Failed to fetch projects",

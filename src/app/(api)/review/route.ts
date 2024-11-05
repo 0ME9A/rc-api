@@ -24,6 +24,8 @@ export async function GET(request: Request) {
         // Send the response
         return NextResponse.json({ success: true, total: testimonials.length, data: testimonials });
     } catch (error) {
+        console.log(error)
+
         return NextResponse.json({
             success: false,
             message: "Failed to fetch testimonials",
